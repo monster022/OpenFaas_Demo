@@ -1,0 +1,10 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://10.11.11.115:31112
+functions:
+  godemo:
+    lang: go
+    handler: ./godemo
+    image: harbor.chengdd.cn/dev/godemo:v4
+
