@@ -1,15 +1,22 @@
 # OpenFaas_Demo
-OpenFaas GoLang Demo
+OpenFaas GoLang Demo  
+![invoke](./images/invoke.jpg)  
 
 ## godemo
 给指定手机号发送短信
 
 ### 部署
-UI界面部署，http://10.11.11.115:31112/ui/, 输入用户名密码  
-`Deploy New Function` -> `CUSTOM`, 填上godemo.yaml文件中的镜像名称、函数名称自定义(函数名称为URL地址访问中的名称);  
-例如:  
-镜像名: harbor.chengdd.cn/dev/godemo:v4  
-函数名：smsv4  
+```shell
+$ git clone https://github.com/openfaas/faas-netes
+$ cd openfaas/faas-netes
+$ kubectl apply -f namespaces.yml
+$ kubectl -n openfaas create secret generic basic-auth --from-literal=basic-auth-user=admin --from-literal=basic-auth-password=admin
+$ cd yaml
+$ kubectl apply -f .
+```
+检查所有应用running后，页面访问http://node01:31112/ui/  
+> 用户名：admin
+> 密码：admin
 
 ### 调用
 ```shell
